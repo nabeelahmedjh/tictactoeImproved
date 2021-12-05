@@ -1,6 +1,6 @@
-#include <helper.h>
+#include "helper.h"
 
-void showBoard(int board[row][column])
+void showBoard(char board[row][column])
 {
     for (int i = 0; i < row; i++)
     {
