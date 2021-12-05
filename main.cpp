@@ -5,12 +5,8 @@
 4. check how wins 
 5. run until someone wins
 */
-#include <iostream>
-using namespace std;
+#include <helper.h>
 
-const int row = 3, column = 3;
-
-void showBoard(int board[row][column]);
 int main()
 {
     int board[row][column];
@@ -23,18 +19,4 @@ int main()
     }
 
     showBoard(board);
-}
-
-void showBoard(int board[row][column])
-{
-    for (int i = 0; i < row; i++)
-    {
-        cout << "---------------------" << endl;
-        for (int j = 0; j < column; j++)
-        {
-            cout << "|  " << board[i][j] << "  |";
-        }
-        cout << endl;
-    }
-    cout << "---------------------" << endl;
 }
