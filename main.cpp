@@ -6,11 +6,12 @@
 5. run until someone wins
 */
 #include "helper.h"
-int player, bot;
+
 bool checkplace(int playerEntry);
 int main()
 {
-
+    int player, bot;
+    char board[row][column];
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < column; j++)
@@ -27,7 +28,7 @@ int main()
         {
             cin >> player;
             player--;
-            if (checkplace(player) == true)
+            if (checkplace(player, board) == true)
             {
                 board[player / row][player % column] = 'X';
                 break;
