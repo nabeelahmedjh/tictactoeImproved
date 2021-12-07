@@ -6,6 +6,7 @@
 5. run until someone wins
 */
 #include "helper.h"
+#include <stdlib.h>
 
 bool checkplace(int playerEntry);
 int main()
@@ -31,6 +32,17 @@ int main()
             if (checkplace(player, board) == true)
             {
                 board[player / row][player % column] = 'X';
+                break;
+            }
+        }
+        showBoard(board);
+        cout << "!!!!BOT turn!!!\n";
+        while (true)
+        {
+            bot = rand() % 9;
+            if (checkplace(bot, board) == true)
+            {
+                board[bot / row][bot % column] = 'O';
                 break;
             }
         }
