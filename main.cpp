@@ -7,6 +7,7 @@
 */
 #include "helper.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 bool checkplace(int playerEntry);
 int main()
@@ -35,8 +36,12 @@ int main()
                 break;
             }
         }
+        system("CLS");
         showBoard(board);
         cout << "!!!!BOT turn!!!\n";
+        sleep(2);
+        system("CLS");
+
         while (true)
         {
             bot = rand() % 9;
@@ -46,6 +51,7 @@ int main()
                 break;
             }
         }
+        showBoard(board);
 
     } while (true);
 }
