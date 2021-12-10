@@ -14,6 +14,7 @@ bool checkplace(int playerEntry);
 int main()
 {
     int player, bot;
+    bool win = false;
     char board[row][column];
     for (int i = 0; i < row; i++)
     {
@@ -22,9 +23,10 @@ int main()
             board[i][j] = '-';
         }
     }
+    showBoard(board);
     do
     {
-        showBoard(board);
+
         cout << "Enter (1-9): ";
 
         while (true)
@@ -36,11 +38,18 @@ int main()
                 board[player / row][player % column] = 'X';
                 break;
             }
+            else
+            {
+                cout << " Enter a valid remaining option : ";
+            }
         }
         system("CLS");
         showBoard(board);
-        cout << "!!!!BOT Turn!!!\n"
-             << "BOT is Thinking\n";
+        if (wincheck(board) == true)
+            break;
+
+        cout << "BOT is Thinking\n"
+             << "!!!!BOT Turn!!!\n";
         sleep(1);
 
         while (true)
@@ -52,6 +61,9 @@ int main()
                 break;
             }
         }
+        showBoard(board);
 
-    } while (true);
+    } while (wincheck(board) == false);
+
+    return 0;
 }
