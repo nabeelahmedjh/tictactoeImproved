@@ -6,7 +6,8 @@
 5. run until someone wins
 */
 #include "helper.h"
-#include <stdlib.h>
+#include "stdlib.h"
+#include "conio.h"
 #include <unistd.h>
 
 bool checkplace(int playerEntry);
@@ -38,9 +39,9 @@ int main()
         }
         system("CLS");
         showBoard(board);
-        cout << "!!!!BOT turn!!!\n";
-        sleep(2);
-        system("CLS");
+        cout << "!!!!BOT Turn!!!\n"
+             << "BOT is Thinking\n";
+        sleep(1);
 
         while (true)
         {
@@ -51,7 +52,6 @@ int main()
                 break;
             }
         }
-        showBoard(board);
 
     } while (true);
 }
