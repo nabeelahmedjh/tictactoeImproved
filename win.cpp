@@ -1,17 +1,23 @@
 #include "helper.h"
 
-bool wincheck(char board[row][column])
+// function for printing the winner
+void outputMessage(char board[row][column], int a, int b)
+{
+    if (board[a][b] == 'X')
+        cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
+    else
+        cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
+}
+
+// checking win
+bool winCheck(char board[row][column])
 {
     // checking win for all three rows
     for (int i = 0; i < row; i++)
     {
         if ((board[i][0] == 'X' && board[i][1] == 'X' && board[i][2] == 'X') || (board[i][0] == 'O' && board[i][1] == 'O' && board[i][2] == 'O'))
         {
-            if (board[i][0] == 'X')
-                cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
-            else
-                cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
-
+            outputMessage(board, i, 0);
             return true;
         }
     }
@@ -21,11 +27,7 @@ bool wincheck(char board[row][column])
     {
         if ((board[0][i] == 'X' && board[1][i] == 'X' && board[2][i] == 'X') || (board[0][i] == 'O' & board[1][i] == 'O' && board[2][i] == 'O'))
         {
-            if (board[0][i] == 'X')
-                cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
-            else
-                cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
-
+            outputMessage(board, 0, i);
             return true;
         }
     }
@@ -33,20 +35,12 @@ bool wincheck(char board[row][column])
     // checking win for diagonals
     if ((board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') || (board[0][0] == 'O' & board[1][1] == 'O' && board[2][2] == 'O'))
     {
-        if (board[0][0] == 'X')
-            cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
-        else
-            cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
-
+        outputMessage(board, 0, 0);
         return true;
     }
     if ((board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X') || (board[0][2] == 'O' & board[1][1] == 'O' && board[2][0] == 'O'))
     {
-        if (board[0][2] == 'X')
-            cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
-        else
-            cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
-
+        outputMessage(board, 0, 2);
         return true;
     }
 

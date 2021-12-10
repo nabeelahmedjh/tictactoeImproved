@@ -1,21 +1,15 @@
-/* what i need to make tictactoe
-1.(done) board
-2. (done)players (user and a computer)
-3. (only done for user bot is still remaining)algorithm to register move
-4. check how wins 
-5. run until someone wins
-*/
 #include "helper.h"
 #include "stdlib.h"
-#include "conio.h"
 #include <unistd.h>
 
-bool checkplace(int playerEntry);
 int main()
 {
+
+    // declaring and intializing some required variables
     int player, bot;
     bool win = false;
     char board[row][column];
+
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < column; j++)
@@ -23,17 +17,17 @@ int main()
             board[i][j] = '-';
         }
     }
+
     showBoard(board);
     do
     {
-
+        // taking entry from user and than checking that valid or not, if not asking it asking for value again
         cout << "Enter (1-9): ";
-
         while (true)
         {
             cin >> player;
             player--;
-            if (checkplace(player, board) == true)
+            if (checkPlace(player, board) == true)
             {
                 board[player / row][player % column] = 'X';
                 break;
@@ -45,17 +39,20 @@ int main()
         }
         system("CLS");
         showBoard(board);
-        if (wincheck(board) == true)
+
+        // checking if gameover
+        if (winCheck(board) == true)
             break;
 
         cout << "BOT is Thinking\n"
              << "!!!!BOT Turn!!!\n";
         sleep(1);
 
+        // generating an entry for bot
         while (true)
         {
             bot = rand() % 9;
-            if (checkplace(bot, board) == true)
+            if (checkPlace(bot, board) == true)
             {
                 board[bot / row][bot % column] = 'O';
                 break;
@@ -63,7 +60,7 @@ int main()
         }
         showBoard(board);
 
-    } while (wincheck(board) == false);
+    } while (winCheck(board) == false);
 
     return 0;
 }
