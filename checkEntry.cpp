@@ -7,7 +7,6 @@ bool checkplace(int playerEntry, char board[row][column])
     }
     else
     {
-        cout << "Enter a valid remaining option: ";
         return false;
     }
 }
