@@ -4,9 +4,17 @@
 void outputMessage(char board[row][column], int a, int b)
 {
     if (board[a][b] == 'X')
-        cout << "\n\n!!!!!!!!!!!PLAYER WIN!!!!!!!!!" << endl;
+    {
+        addColor(3);
+        cout << "\n\n!!!!!!!!!!!YOU WIN!!!!!!!!!" << endl;
+        addColor(7);
+    }
     else
+    {
+        addColor(12);
         cout << "\n\n!!!!!!!!!!!BOT WIN!!!!!!!!!!!!" << endl;
+        addColor(7);
+    }
 }
 
 // checking win

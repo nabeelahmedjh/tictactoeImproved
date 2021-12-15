@@ -2,14 +2,34 @@
 
 void showBoard(char board[row][column])
 {
-    for (int i = 0; i < row; i++)
-    {
-        cout << "---------------------" << endl;
-        for (int j = 0; j < column; j++)
-        {
-            cout << "|  " << board[i][j] << "  |";
-        }
-        cout << endl;
-    }
-    cout << "---------------------" << endl;
+
+     cout << "     |     |       \n"
+          << "  ";
+     applyColor(board[0][0]);
+     cout << "  |  ";
+     applyColor(board[0][1]);
+     cout << "  |  ";
+     applyColor(board[0][2]);
+     cout << "  \n"
+          << "     |     |       \n"
+          << "------------------\n"
+          << "     |     |       \n";
+     cout << "  ";
+     applyColor(board[1][0]);
+     cout << "  |  ";
+     applyColor(board[1][1]);
+     cout << "  |  ";
+     applyColor(board[1][2]);
+     cout << "  \n"
+          << "     |     |       \n"
+          << "------------------\n"
+          << "     |     |       \n"
+          << "  ";
+     applyColor(board[2][0]);
+     cout << "  |  ";
+     applyColor(board[2][1]);
+     cout << "  |  ";
+     applyColor(board[2][2]);
+     cout << "  \n"
+          << "     |     |       \n";
 }

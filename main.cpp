@@ -19,6 +19,7 @@ int main()
     }
 
     showBoard(board);
+    cout << "YOUR ENTRY WILL CONSIDERED AS 'X'\nBOT WILL CONSIDERED AS 'O'\n";
     do
     {
         // taking entry from user and than checking that valid or not, if not asking it asking for value again
@@ -37,16 +38,18 @@ int main()
                 cout << " Enter a valid remaining option : ";
             }
         }
-        system("CLS");
+        //system("CLS");
         showBoard(board);
 
         // checking if gameover
         if (winCheck(board) == true)
             break;
 
-        cout << "BOT is Thinking\n"
-             << "!!!!BOT Turn!!!\n";
+        cout << "BOT is Thinking\n";
+
+        // freezing program for 1 sec to show that bot is thinking
         sleep(1);
+        cout << "!!!!BOT Turn!!!\n";
 
         // generating an entry for bot
         while (true)
