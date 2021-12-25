@@ -1,5 +1,6 @@
 #include "helper.h"
 
+// a function that will printout the board using multiple console colors
 void showBoard(char board[row][column])
 {
 
